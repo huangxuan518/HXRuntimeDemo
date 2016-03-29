@@ -13,7 +13,7 @@
 
 @end
 
-@implementation Person 
+@implementation Person
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     unsigned int count;
@@ -57,19 +57,27 @@
     return self;
 }
 
-//吃饭
-- (void)eat {
-    
-}
-
 //睡觉
-- (void)sleep {
-    
+- (void)sleeping {
+    NSLog(@"我喜欢睡觉");
 }
 
 //工作
 - (void)work {
-    
+    NSLog(@"我喜欢工作");
+}
+
+//动态eat添加方法
+void eat (id self,SEL sel) {
+    [self sleeping];
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    //给本类动态添加一个方法
+    if ([NSStringFromSelector(sel) isEqualToString:@"run"]) {
+        class_addMethod(self, sel, (IMP)eat, "v@:");
+    }
+    return [super resolveInstanceMethod:sel];
 }
 
 @end

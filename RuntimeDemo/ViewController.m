@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "Person.h"
+#import "UILabel+Associate.h"
+#import "NSMutableArray+Extension.h"
 
 @interface ViewController () <PersonDelegate>
 
@@ -20,9 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    //[self test1];
-    
-    [self test5];
+    [self test10];
 }
 
 /**
@@ -138,6 +139,100 @@
     Person *unarchiverPerson = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     
     NSLog(@"unarchiverPerson == %@ %@",path,unarchiverPerson);
+}
+
+/**
+ *  动态添加方法
+ */
+- (void)test6 {
+    Person *person = [Person new];
+    [person performSelector:@selector(run)];
+}
+
+/**
+ *  动态添加属性
+ */
+- (void)test7 {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 30)];
+    [label setFlashColor:[UIColor redColor]];
+    [self.view addSubview:label];
+}
+
+/**
+ *  方法交换
+ */
+- (void)test8 {
+
+    //通过runtime的method_exchangeImplementations(Method m1, Method m2)方法，可以进行交换方法的实现；一般用自己写的方法（常用在自己写的框架中，添加某些防错措施）来替换系统的方法实现，常用的地方有：
+    
+    //在数组中，越界访问程序会崩，可以用自己的方法添加判断防止程序出现崩溃数组或字典中不能添加nil，如果添加程序会崩，用自己的方法替换系统防止系统崩溃
+    
+    NSMutableArray *ary = [NSMutableArray new];
+    [ary addObject:nil];
+    [ary addObject:@"字符串"];
+    
+    NSLog(@"%@",ary);
+}
+
+/**
+ *  消息
+ */
+- (void)test9 {
+    Person *person = [Person new];
+    objc_msgSend(person,@selector(work));
+}
+
+/**
+ *  二分查找法
+ */
+- (void)test10 {
+    int arr[] = {0,1,2,3,5,4,6,7,8,9,10};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    
+    
+    int i;
+    int j;
+    int temp;
+    for (i = 0;i < length;i++) {
+        for (j = 0;j < length-i;j++) {
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    int value = 5;
+    int index = search(arr, length, value);
+    if (index < 0) {
+        NSLog(@"未找到");
+    } else {
+        printf("值:%d 位置:%d \n",value,index);
+    }
+}
+
+int search(int arr[],int length,int value) {
+    int startIndex = 0;
+    int middleIndex;
+    int endIndex = length - 1;
+    
+    while (startIndex <= endIndex) {
+        
+        middleIndex = (startIndex + endIndex)/2;
+
+        int currentValue = arr[middleIndex];
+        if (value == currentValue) {
+            return middleIndex;
+        } else {
+            if (value < currentValue) {
+                endIndex = middleIndex - 1;
+            } else {
+                startIndex = middleIndex + 1;
+            }
+        }
+    }
+    return -1;
 }
 
 #pragma mark - PersonDelegate

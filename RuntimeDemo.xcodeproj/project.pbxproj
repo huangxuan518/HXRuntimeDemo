@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309409961C9F96F90034D5F8 /* UILabel+Associate.m in Sources */ = {isa = PBXBuildFile; fileRef = 309409951C9F96F90034D5F8 /* UILabel+Associate.m */; };
+		309409991C9F9AAF0034D5F8 /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 309409981C9F9AAF0034D5F8 /* NSMutableArray+Extension.m */; };
 		309678561C9BA6F5002EDD6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 309678551C9BA6F5002EDD6B /* main.m */; };
 		309678591C9BA6F5002EDD6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 309678581C9BA6F5002EDD6B /* AppDelegate.m */; };
 		3096785C1C9BA6F5002EDD6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3096785B1C9BA6F5002EDD6B /* ViewController.m */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		309409941C9F96F90034D5F8 /* UILabel+Associate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Associate.h"; sourceTree = "<group>"; };
+		309409951C9F96F90034D5F8 /* UILabel+Associate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Associate.m"; sourceTree = "<group>"; };
+		309409971C9F9AAF0034D5F8 /* NSMutableArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extension.h"; sourceTree = "<group>"; };
+		309409981C9F9AAF0034D5F8 /* NSMutableArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extension.m"; sourceTree = "<group>"; };
 		309678511C9BA6F5002EDD6B /* RuntimeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309678551C9BA6F5002EDD6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		309678571C9BA6F5002EDD6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 			children = (
 				3096786E1C9BA7CD002EDD6B /* Person.h */,
 				3096786F1C9BA7CD002EDD6B /* Person.m */,
+				309409971C9F9AAF0034D5F8 /* NSMutableArray+Extension.h */,
+				309409981C9F9AAF0034D5F8 /* NSMutableArray+Extension.m */,
+				309409941C9F96F90034D5F8 /* UILabel+Associate.h */,
+				309409951C9F96F90034D5F8 /* UILabel+Associate.m */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -163,6 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3096785C1C9BA6F5002EDD6B /* ViewController.m in Sources */,
+				309409991C9F9AAF0034D5F8 /* NSMutableArray+Extension.m in Sources */,
+				309409961C9F96F90034D5F8 /* UILabel+Associate.m in Sources */,
 				309678591C9BA6F5002EDD6B /* AppDelegate.m in Sources */,
 				309678701C9BA7CD002EDD6B /* Person.m in Sources */,
 				309678561C9BA6F5002EDD6B /* main.m in Sources */,
@@ -275,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blog.libuqing.com.RuntimeDemo;
@@ -286,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = RuntimeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blog.libuqing.com.RuntimeDemo;
@@ -312,6 +326,7 @@
 				3096786A1C9BA6F5002EDD6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

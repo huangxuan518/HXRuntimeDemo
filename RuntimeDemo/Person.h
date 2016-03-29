@@ -30,14 +30,9 @@
 #pragma mark - 方法
 
 /**
- *  吃饭
- */
-- (void)eat;
-
-/**
  *  睡觉
  */
-- (void)sleep;
+- (void)sleeping;
 
 /**
  *  工作
